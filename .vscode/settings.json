@@ -1,0 +1,12 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "stylelint.validate": [
+    "css",
+    "postcss",
+    "scss",
+    "vue",
+    "sass"
+  ]
+}

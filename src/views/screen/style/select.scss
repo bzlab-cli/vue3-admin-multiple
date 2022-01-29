@@ -1,0 +1,53 @@
+// :popper-append-to-body="false"
+// 通过仔细查看Dom元素可以发现，官方Select选择器下拉框是直接插入body标签中，与最外级id为app的div同级，所以在Vue中无论怎么写css都无法覆盖到下拉框样式。
+
+:deep(.el-input__inner) {
+  border-color: #029bdb;
+  background-color: transparent;
+  height: 0.275rem /* 22/80 */;
+  border-radius: 0.025rem /* 2/80 */;
+
+  text-align: center;
+  color: #fff;
+}
+:deep(.el-select .el-input .el-select__caret) {
+  color: #029bdb;
+  font-family: Microsoft YaHei;
+font-weight: 400;
+color: #00B4FF;
+}
+:deep(.el-input__suffix) {
+  line-height: 0.275rem /* 22/80 */;
+  border-left: 1px #029bdb solid;
+  right: 0;
+}
+:deep(.el-input__icon) {
+  line-height: 0.275rem /* 22/80 */;
+}
+// hover
+:deep(.el-input__inner:hover){
+  border-color: #029bdb;
+}
+
+:deep(.el-input--suffix:hover .el-input__inner){
+  border-color: #029bdb;
+}
+
+// select 下拉选择框
+:deep(.el-select__popper){
+  background-color: rgba(6, 6, 7, 1) !important;
+  border: 1px solid #00B4FF !important;
+  // border-radius: 3px; 
+}
+:deep(.el-select-dropdown__item:hover){
+  background-color: rgba(1, 56, 80, 1) ;
+  color: rgba(0, 180, 255, 1) ;
+}
+:deep(.el-popper__arrow){
+  display: none;
+}
+
+.selected {
+  background-color: rgba(1, 56, 80, 1);
+    color: #fff;
+}

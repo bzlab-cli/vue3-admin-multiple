@@ -1,0 +1,31 @@
+:deep(.el-table) {
+  background-color: transparent !important;
+  border-color: rgba(61, 64, 69, 1);
+  border-radius: 0.0375rem /* 3/80 */;
+  th {
+    background-color: transparent !important; /* 背景透明 */
+    border-color: rgba(61, 64, 69, 1);
+    font-size: 0.175rem /* 14/80 */;
+    font-family: ShiShangZhongHeiJianTi;
+    font-weight: 400;
+    color: #fff;
+    padding: 0.0375rem /* 3/80 */ 0;
+  }
+  tr,
+  td {
+    background-color: transparent !important; /* 背景透明 */
+    border-color: rgba(61, 64, 69, 1);
+    color: #fff;
+    padding: 0.0375rem /* 3/80 */ 0;
+    font-size: 0.15rem /* 12/80 */;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #adadad;
+  }
+}
+:deep(.el-table::before) {
+  background-color: rgba(61, 64, 69, 1);
+}
+:deep(.el-table--border::after) {
+  background-color: rgba(61, 64, 69, 1);
+}

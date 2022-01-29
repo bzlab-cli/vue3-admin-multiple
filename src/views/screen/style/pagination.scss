@@ -1,0 +1,24 @@
+/**分页 */
+:deep(.el-pagination__total) {
+  color: #ffffff;
+}
+:deep(.el-pagination__jump) {
+  color: #ffffff;
+}
+:deep(.el-pagination.is-background .btn-prev) {
+  border: 1px solid rgba(61, 64, 69, 1);
+  // border-radius: 3px;
+  background: transparent;
+  color: rgba(61, 64, 69, 1);
+}
+:deep(.el-pagination.is-background .btn-next) {
+  border: 1px solid rgba(61, 64, 69, 1);
+  // border-radius: 3px;
+  background: transparent;
+  color: rgba(61, 64, 69, 1);
+}
+:deep(.el-pagination.is-background .el-pager li) {
+  color: #fff;
+  border: 1px solid rgba(61, 64, 69, 1);
+  background: transparent;
+}

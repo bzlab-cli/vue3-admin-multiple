@@ -1,0 +1,75 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: __NAMESPACE_NAME__
+  labels:
+    app: __CI_PROJECT_NAME__
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: __CI_PROJECT_NAME__
+  namespace: __NAMESPACE_NAME__
+  labels:
+    app: __CI_PROJECT_NAME__
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: __CI_PROJECT_NAME__
+  template:
+    metadata:
+      labels:
+        app: __CI_PROJECT_NAME__
+      annotations:
+        ci-last-updated: "__LAST_TIME__"  
+    spec:
+      containers:
+      - name: __CI_PROJECT_NAME__
+        image: __REGISTRY_URL__/__REGISTRY_PROJECT_NAME__/__CI_PROJECT_NAME__:__CI_PIPELINE_ID__
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          name: port  
+        resources:
+          limits:
+            cpu: 100m
+            memory: 512Mi
+          requests:
+            cpu: 80m
+            memory: 256Mi       
+
+
+---
+kind: Service
+apiVersion: v1
+metadata: 
+  name: __CI_PROJECT_NAME__
+  namespace: __NAMESPACE_NAME__
+  labels:
+    name: __CI_PROJECT_NAME__
+spec: 
+  selector:
+    app: __CI_PROJECT_NAME__
+  ports:
+  - name: pressport
+    protocol: TCP
+    port: 80
+    targetPort: port
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: __CI_PROJECT_NAME__
+  namespace: __NAMESPACE_NAME__
+spec:
+  rules:
+    - host: __HOST__
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: __CI_PROJECT_NAME__
+            servicePort: 80
