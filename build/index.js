@@ -3,7 +3,7 @@
  * @Description:
  * @Date: 2021/07/29 10:15:09
  * @LastEditors: jrucker
- * @LastEditTime: 2022/01/26 10:14:26
+ * @LastEditTime: 2022/01/29 17:33:40
  */
 
 const { run } = require('runjs')
@@ -24,7 +24,7 @@ if (process.env.npm_config_preview || rawArgv.includes('--preview')) {
 
   const proxyTable = {
     '/business-web': {
-      target: 'http://local.qimiaowa.com:30356',
+      target: 'http://localhost:3301',
       changeOrigin: true
     }
   }

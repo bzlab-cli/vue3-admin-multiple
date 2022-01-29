@@ -3,7 +3,7 @@
  * @Description: 配置文件
  * @Date: 2021/10/25 18:56:51
  * @LastEditors: jrucker
- * @LastEditTime: 2022/01/29 16:19:18
+ * @LastEditTime: 2022/01/29 17:33:14
  */
 
 const path = require('path')
@@ -57,11 +57,11 @@ module.exports = {
         changeOrigin: true
       },
       '/ftp': {
-        target: 'http://images.project.qimiaowa.com',
+        target: 'http://localhost:3301',
         changeOrigin: true
       },
       '/img': {
-        target: 'http://images.static.qimiaowa.com',
+        target: 'http://localhost:3301',
         changeOrigin: true
       },
     }
