@@ -3,7 +3,7 @@
  * @Description: 配置文件
  * @Date: 2021/10/25 18:56:51
  * @LastEditors: jrucker
- * @LastEditTime: 2022/01/29 17:33:14
+ * @LastEditTime: 2022/02/19 16:03:28
  */
 
 const path = require('path')
@@ -107,7 +107,12 @@ module.exports = {
         'element-plus': "ElementPlus",
       });
 
-      config.plugin("html").tap((args) => {
+      config.plugin("html-admin").tap((args) => {
+        args[0].cdn = cdn;
+        return args;
+      });
+
+      config.plugin("html-screen").tap((args) => {
         args[0].cdn = cdn;
         return args;
       });
