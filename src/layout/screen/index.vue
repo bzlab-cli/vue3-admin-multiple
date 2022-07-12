@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <div>
-      <Navbar />
-    </div>
+  <scale-box>
+    <Navbar />
     <AppMain />
-  </div>
+  </scale-box>
 </template>
 
 <script lang="ts">
@@ -13,12 +11,14 @@ import { computed, defineComponent, onBeforeMount, onBeforeUnmount, onMounted } 
 import { useStore } from 'vuex'
 import { AppMain, Navbar } from './components'
 import resize from './resize'
+import scaleBox from '@/components/scale-box/index.vue'
 
 export default defineComponent({
   name: 'Layout',
   components: {
     AppMain,
-    Navbar
+    Navbar,
+    scaleBox
   },
   setup() {
     const store = useStore()

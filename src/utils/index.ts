@@ -3,7 +3,7 @@
  * @Description:
  * @Date: 2021/10/25 18:56:51
  * @LastEditors: jrucker
- * @LastEditTime: 2021/11/22 11:21:06
+ * @LastEditTime: 2022/07/12 16:04:45
  */
 import type { App, Plugin } from 'vue'
 interface TreeHelperConfig {
@@ -260,4 +260,41 @@ export function floatDiv(a: number, b: number) {
   c = Number(a.toString().replace('.', ''))
   d = Number(b.toString().replace('.', ''))
   return floatMul(c / d, Math.pow(10, f - e))
+}
+
+export function wait(ms) {
+  return new Promise(resolve => {
+    setTimeout(() => resolve('next'), ms)
+  })
+}
+
+export function openWindow(href, type = '_blank') {
+  const a = document.createElement('a') as any
+  const id = 'window'
+  a.setAttribute('href', href)
+  a.setAttribute('target', type)
+  a.setAttribute('id', id)
+  const el = document.getElementById(id)
+  if (!el) {
+    document.body.appendChild(a)
+  }
+  a.click()
+  ;(document as any).getElementById(id).remove()
+}
+
+/**
+ * 是否移动端
+ * @returns
+ */
+export function isMobile() {
+  const userAgentInfo = navigator.userAgent
+  const Agents = ['Android', 'iPhone', 'webOS', 'BlackBerry', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod']
+  let flag = false
+  for (let v = 0; v < Agents.length; v++) {
+    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+      flag = true
+      break
+    }
+  }
+  return flag
 }
