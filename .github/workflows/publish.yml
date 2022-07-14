@@ -3,6 +3,8 @@ name: 发布vue3-admin-multiple
 on:
   push:
     branches: [master]
+    paths-ignore:
+      - '.github'
 jobs:
   publish:
     name: 发布vue3-admin-multiple
@@ -25,7 +27,6 @@ jobs:
         uses: tyankatsu0105/read-package-version-actions@v1
         with:
           path: './'
-          paths-ignore: .github
         id: package-version
 
       - name: Create Release for Tag
