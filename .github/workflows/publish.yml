@@ -2,7 +2,7 @@ name: 发布vue3-admin-multiple
 
 on:
   push:
-    branches: [publish]
+    branches: [master]
     paths-ignore:
       - '.github/**'
       - '.github/workflows/publish.yml'
