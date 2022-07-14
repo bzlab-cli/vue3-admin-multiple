@@ -1,7 +1,7 @@
 {
   "name": "vue3-admin",
   "version": "0.0.2",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "npm-run-all --parallel mock serve:dev",
     "serve:dev": "cross-env NODE_ENV=development dotenv -e .env.develop vue-cli-service serve",
