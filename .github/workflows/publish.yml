@@ -5,7 +5,6 @@ on:
     branches: [master]
     paths-ignore:
       - '.github/**'
-      - '.github/workflows/publish.yml'
 jobs:
   publish:
     name: 发布vue3-admin-multiple
