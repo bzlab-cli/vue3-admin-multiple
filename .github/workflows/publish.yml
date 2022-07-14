@@ -21,19 +21,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org/
 
-      - name: publish
-        working-directory: './'
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-        run: npm publish
-
-      - name: publish 成功通知
-        run: echo 推送成功，请访问 https://github.com/bzlab-cli/vue3-admin-multiple
-
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
         with:
-          path: './package/vue3-admin-multiple'
+          path: './'
+          paths-ignore: .github
         id: package-version
 
       - name: Create Release for Tag
