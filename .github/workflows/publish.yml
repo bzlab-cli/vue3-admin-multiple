@@ -3,8 +3,7 @@ name: 发布vue3-admin-multiple
 on:
   push:
     branches: [master]
-    paths-ignore:
-      - '.github/**'
+
 jobs:
   publish:
     name: 发布vue3-admin-multiple
