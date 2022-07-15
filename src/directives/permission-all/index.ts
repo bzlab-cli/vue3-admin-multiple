@@ -3,28 +3,25 @@
  * @Author: jrucker
  * @Date: 2020-12-28 10:39:21
  * @LastEditors: jrucker
- * @LastEditTime: 2022/07/12 15:59:50
+ * @LastEditTime: 2022/07/15 15:13:17
+ * @Example: v-permission="布尔值"
  */
 
-import { useStore } from '@/views/admin/store'
 import { Directive } from 'vue'
-import { isArray } from '@/utils'
+import { isBoolean } from '@/utils'
 
 function removeNode(el) {
   el.parentNode && el.parentNode.removeChild(el)
 }
 
 function checkPermission(el, value) {
-  const perms = useStore().state.permission.accessedCodes
-  if (!isArray(value)) throw new Error(`Need perms like v-permission="['权限名称']"`)
-  if (value.length) {
-    if (!perms.some(perm => value.includes(perm))) {
-      removeNode(el)
-    }
+  if (!isBoolean(value)) throw new Error(`Need perms like v-permission="true|false"`)
+  if (!value) {
+    return removeNode(el)
   }
 }
 
-export const permission: Directive = {
+export const permissionAll: Directive = {
   mounted(el, binding) {
     const { value } = binding
     checkPermission(el, value)
