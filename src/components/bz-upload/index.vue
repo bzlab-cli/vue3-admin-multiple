@@ -3,7 +3,7 @@
  * @Description: 
  * @Date: 2021/11/26 09:54:36
  * @LastEditors: jrucker
- * @LastEditTime: 2022/01/20 17:22:18
+ * @LastEditTime: 2022/07/18 12:23:45
 -->
 
 <script lang="ts">
@@ -101,7 +101,7 @@ export default defineComponent({
       type: Function,
       default: () => NOOP
     },
-    onChange: {
+    onStart: {
       type: Function,
       default: () => NOOP
     },
@@ -152,7 +152,7 @@ export default defineComponent({
       disabled: this.disabled,
       limit: this.limit,
       'on-exceed': this.onExceed,
-      'on-change': this.onChange,
+      'on-start': this.onStart,
       'on-progress': this.onProgress,
       'on-success': this.onSuccess,
       'on-error': this.onError ? this.onError : onError,
