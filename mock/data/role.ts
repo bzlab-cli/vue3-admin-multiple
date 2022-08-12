@@ -3,7 +3,7 @@
  * @Description: 数据
  * @Date: 2021/10/25 18:56:51
  * @LastEditors: jrucker
- * @LastEditTime: 2022/01/29 15:39:53
+ * @LastEditTime: 2022/08/12 15:19:41
  */
 
 export const menuGrantByRole = [
@@ -17,9 +17,9 @@ export const menuGrantByRole = [
     menuCode: '',
     menuUrl: '/system',
     menuRoute: 'Layout',
-    menuIcon: '',
+    menuIcon: 'el-icon-menu',
     menuSource: 1,
-    hiddenFlag: 0,
+    hiddenFlag: 1,
     remarks: '',
     status: 0,
     createUser: '',
@@ -27,7 +27,7 @@ export const menuGrantByRole = [
     updateUser: '96f3eddc-4396-11ec-87ee-0242ac110002',
     updateTime: '2021-11-15 18:27:19',
     hasChild: true,
-    grantFlag: false,
+    grantFlag: true,
     childTreeList: [
       {
         id: 100104,
@@ -35,11 +35,11 @@ export const menuGrantByRole = [
         menuName: '用户管理',
         menuType: 2,
         menuSort: 0,
-        menuComponents: '/views/system/user/index.vue',
+        menuComponents: 'admin/system/user/index.vue',
         menuCode: '',
         menuUrl: 'user',
         menuRoute: 'user',
-        menuIcon: '',
+        menuIcon: 'el-icon-menu',
         menuSource: 1,
         hiddenFlag: 1,
         remarks: '',
@@ -49,7 +49,7 @@ export const menuGrantByRole = [
         updateUser: '96f3eddc-4396-11ec-87ee-0242ac110002',
         updateTime: '2021-11-15 18:28:13',
         hasChild: true,
-        grantFlag: false,
+        grantFlag: true,
         childTreeList: [
           {
             id: 10010401,
@@ -61,7 +61,7 @@ export const menuGrantByRole = [
             menuCode: 'view',
             menuUrl: '',
             menuRoute: '',
-            menuIcon: '',
+            menuIcon: 'el-icon-menu',
             menuSource: 1,
             hiddenFlag: 1,
             remarks: '',
@@ -71,7 +71,7 @@ export const menuGrantByRole = [
             updateUser: '96f3eddc-4396-11ec-87ee-0242ac110002',
             updateTime: '2021-11-15 18:35:40',
             hasChild: false,
-            grantFlag: false,
+            grantFlag: true,
             childTreeList: []
           }
         ]
@@ -82,11 +82,11 @@ export const menuGrantByRole = [
         menuName: '菜单管理',
         menuType: 2,
         menuSort: 1,
-        menuComponents: '/views/system/menu/index.vue',
+        menuComponents: 'admin/system/menu/index.vue',
         menuCode: '',
         menuUrl: 'menu',
         menuRoute: 'menu',
-        menuIcon: '',
+        menuIcon: 'el-icon-menu',
         menuSource: 1,
         hiddenFlag: 1,
         remarks: '',
@@ -96,7 +96,7 @@ export const menuGrantByRole = [
         updateUser: '96f3eddc-4396-11ec-87ee-0242ac110002',
         updateTime: '2021-11-15 18:28:41',
         hasChild: true,
-        grantFlag: false,
+        grantFlag: true,
         childTreeList: [
           {
             id: 10010101,
@@ -108,7 +108,7 @@ export const menuGrantByRole = [
             menuCode: 'view',
             menuUrl: '',
             menuRoute: '',
-            menuIcon: '',
+            menuIcon: 'el-icon-menu',
             menuSource: 1,
             hiddenFlag: 1,
             remarks: '',
@@ -118,7 +118,7 @@ export const menuGrantByRole = [
             updateUser: '',
             updateTime: '2021-11-04 14:34:45',
             hasChild: false,
-            grantFlag: false,
+            grantFlag: true,
             childTreeList: []
           }
         ]
@@ -129,11 +129,11 @@ export const menuGrantByRole = [
         menuName: '角色管理',
         menuType: 2,
         menuSort: 2,
-        menuComponents: '/views/system/role/index.vue',
+        menuComponents: 'admin/system/role/index.vue',
         menuCode: '',
         menuUrl: 'role',
         menuRoute: 'role',
-        menuIcon: '',
+        menuIcon: 'el-icon-menu',
         menuSource: 1,
         hiddenFlag: 1,
         remarks: '',
@@ -143,7 +143,7 @@ export const menuGrantByRole = [
         updateUser: '96f3eddc-4396-11ec-87ee-0242ac110002',
         updateTime: '2021-11-15 18:29:00',
         hasChild: true,
-        grantFlag: false,
+        grantFlag: true,
         childTreeList: [
           {
             id: 10010201,
@@ -155,7 +155,7 @@ export const menuGrantByRole = [
             menuCode: 'view',
             menuUrl: '',
             menuRoute: '',
-            menuIcon: '',
+            menuIcon: 'el-icon-menu',
             menuSource: 1,
             hiddenFlag: 1,
             remarks: '',
@@ -165,7 +165,7 @@ export const menuGrantByRole = [
             updateUser: '96f3eddc-4396-11ec-87ee-0242ac110002',
             updateTime: '2021-11-15 18:36:24',
             hasChild: false,
-            grantFlag: false,
+            grantFlag: true,
             childTreeList: []
           }
         ]
@@ -176,11 +176,11 @@ export const menuGrantByRole = [
         menuName: '组织管理',
         menuType: 2,
         menuSort: 3,
-        menuComponents: '/views/system/org/index.vue',
+        menuComponents: 'admin/system/org/index.vue',
         menuCode: '',
         menuUrl: 'org',
         menuRoute: 'org',
-        menuIcon: '',
+        menuIcon: 'el-icon-menu',
         menuSource: 1,
         hiddenFlag: 1,
         remarks: '',
@@ -190,7 +190,7 @@ export const menuGrantByRole = [
         updateUser: '96f3eddc-4396-11ec-87ee-0242ac110002',
         updateTime: '2021-11-15 18:29:19',
         hasChild: true,
-        grantFlag: false,
+        grantFlag: true,
         childTreeList: [
           {
             id: 10010301,
@@ -202,7 +202,7 @@ export const menuGrantByRole = [
             menuCode: 'view',
             menuUrl: '',
             menuRoute: '',
-            menuIcon: '',
+            menuIcon: 'el-icon-menu',
             menuSource: 1,
             hiddenFlag: 1,
             remarks: '',
@@ -212,7 +212,7 @@ export const menuGrantByRole = [
             updateUser: '96f3eddc-4396-11ec-87ee-0242ac110002',
             updateTime: '2021-11-15 18:37:04',
             hasChild: false,
-            grantFlag: false,
+            grantFlag: true,
             childTreeList: []
           }
         ]

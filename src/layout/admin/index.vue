@@ -2,10 +2,9 @@
   <div :class="classObj" class="app-wrapper">
     <div v-if="classObj.mobile && sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <Sidebar class="sidebar-container" />
-    <div :class="{ hasTagsView: showTagsView }" class="main-container">
+    <div class="main-container">
       <div :class="{ 'fixed-header': fixedHeader }">
         <Navbar />
-        <TagsView v-if="showTagsView" />
       </div>
       <AppMain />
     </div>
@@ -17,7 +16,7 @@ import { DeviceType } from '@/views/admin/store/modules/app/state'
 import { computed, defineComponent, onBeforeMount, onBeforeUnmount, onMounted, reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
 import { AppActionTypes } from '@/views/admin/store/modules/app/types'
-import { AppMain, Navbar, TagsView, Sidebar } from './components'
+import { AppMain, Navbar, Sidebar } from './components'
 import resize from './resize'
 
 export default defineComponent({
@@ -25,8 +24,7 @@ export default defineComponent({
   components: {
     AppMain,
     Navbar,
-    Sidebar,
-    TagsView
+    Sidebar
   },
   setup() {
     const store = useStore()
@@ -47,9 +45,6 @@ export default defineComponent({
       }
     })
 
-    const showTagsView = computed(() => {
-      return store.state.settings.showTagsView
-    })
     const fixedHeader = computed(() => {
       return store.state.settings.fixedHeader
     })
@@ -69,7 +64,6 @@ export default defineComponent({
     return {
       classObj,
       sidebar,
-      showTagsView,
       fixedHeader,
       ...toRefs(state)
     }

@@ -3,7 +3,7 @@
  * @Description:
  * @Date: 2021/10/25 11:12:57
  * @LastEditors: jrucker
- * @LastEditTime: 2021/10/25 16:43:19
+ * @LastEditTime: 2022/08/12 15:03:53
  */
 
 import { RouteRecordRaw } from 'vue-router'
@@ -24,7 +24,7 @@ const DashboardRouter: Array<RouteRecordRaw> = [
         name: 'dashboard',
         meta: {
           title: '首页',
-          icon: '#icondashboard',
+          icon: 'el-icon-menu',
           affix: true
         }
       }

@@ -32,9 +32,9 @@
         </el-input>
       </template>
       <transition name="el-zoom-in-top">
-        <div class="icon-selector-warp" v-show="fontIconVisible">
-          <div class="icon-selector-warp-title">{{ title }}</div>
-          <div class="icon-selector-warp-row">
+        <div class="icon-selector-wrap" v-show="fontIconVisible">
+          <div class="icon-selector-wrap-title">{{ title }}</div>
+          <div class="icon-selector-wrap-row">
             <el-scrollbar>
               <el-row :gutter="10" v-if="fontIconSheetsFilterList.length > 0">
                 <el-col
@@ -47,9 +47,9 @@
                   v-for="(v, k) in fontIconSheetsFilterList"
                   :key="k"
                 >
-                  <div class="icon-selector-warp-item" :class="{ 'icon-selector-active': fontIconPrefix === v }">
+                  <div class="icon-selector-wrap-item" :class="{ 'icon-selector-active': fontIconPrefix === v }">
                     <div class="flex-margin">
-                      <div class="icon-selector-warp-item-value">
+                      <div class="icon-selector-wrap-item-value">
                         <i :class="v"></i>
                       </div>
                     </div>
@@ -232,3 +232,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.icon-selector-wrap {
+  .icon-selector-wrap-row {
+    margin-top: 5px;
+    height: 225px;
+    .icon-selector-wrap-item {
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+}
+</style>

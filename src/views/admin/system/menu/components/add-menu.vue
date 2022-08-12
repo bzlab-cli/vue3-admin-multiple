@@ -89,16 +89,16 @@
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb10">
-            <el-form-item label="是否显示" prop="hiddenFlag" style="width: 100%">
-              <el-select v-model="ruleForm.hiddenFlag" placeholder="请选择">
+            <el-form-item label="是否显示" prop="hiddenFlag">
+              <el-select v-model="ruleForm.hiddenFlag" placeholder="请选择" style="width: 100%">
                 <el-option label="显示" :value="1"></el-option>
                 <el-option label="隐藏" :value="0"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb10">
-            <el-form-item label="状态" prop="status" style="width: 100%">
-              <el-select v-model="ruleForm.status" placeholder="请选择">
+            <el-form-item label="状态" prop="status">
+              <el-select v-model="ruleForm.status" placeholder="请选择" style="width: 100%">
                 <el-option label="启用" :value="0"></el-option>
                 <el-option label="禁用" :value="1"></el-option>
               </el-select>
@@ -115,6 +115,22 @@
           >
             <el-form-item label="权限标识">
               <el-input v-model="ruleForm.menuCode" placeholder="请输入" clearable></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col
+            :xs="24"
+            :sm="12"
+            :md="12"
+            :lg="12"
+            :xl="12"
+            class="mb10"
+            v-if="ruleForm.menuType === 2 || ruleForm.menuType === 3"
+          >
+            <el-form-item label="缓存">
+              <el-select v-model="ruleForm.cache" placeholder="请选择" style="width: 100%">
+                <el-option label="禁用" :value="0"></el-option>
+                <el-option label="启用" :value="1"></el-option>
+              </el-select>
             </el-form-item>
           </el-col>
         </el-row>
@@ -150,6 +166,7 @@ interface ISubmit {
   parentId: number
   status: number
   remarks: string
+  cache: number
 }
 
 export default {
@@ -176,7 +193,8 @@ export default {
         hiddenFlag: 1, // 默认显示
         status: 0,
         menuComponents: '',
-        remarks: ''
+        remarks: '',
+        cache: 0
       },
       rules: {
         menuType: [{ required: true, message: '请选择菜单类型', trigger: 'blur' }],
@@ -185,7 +203,8 @@ export default {
         menuRoute: [{ required: true, message: '请输入路由名称', trigger: 'blur' }],
         menuUrl: [{ required: true, message: '请输入路由地址', trigger: 'blur' }],
         menuComponents: [{ required: true, message: '请输入组件地址', trigger: 'blur' }],
-        status: [{ required: true, message: '请选择状态', trigger: 'blur' }]
+        status: [{ required: true, message: '请选择状态', trigger: 'blur' }],
+        cache: [{ required: true, message: '请选择缓存', trigger: 'blur' }]
       }
     })
 
@@ -227,6 +246,7 @@ export default {
         state.ruleForm.menuUrl = row.menuUrl
         state.ruleForm.hiddenFlag = row.hiddenFlag
         state.ruleForm.status = row.status
+        state.ruleForm.cache = row.cache
         state.ruleForm.menuComponents = row.menuComponents
       }
     }
@@ -264,7 +284,8 @@ export default {
             hiddenFlag: state.ruleForm.hiddenFlag,
             status: state.ruleForm.status,
             menuComponents: state.ruleForm.menuComponents,
-            remarks: state.ruleForm.remarks
+            remarks: state.ruleForm.remarks,
+            cache: state.ruleForm.cache
           } as ISubmit
 
           if (state.dialogType === 'update') {
@@ -289,6 +310,7 @@ export default {
       state.ruleForm.menuUrl = ''
       state.ruleForm.hiddenFlag = 1
       state.ruleForm.status = 0
+      state.ruleForm.cache = 0
       state.ruleForm.menuComponents = ''
       state.ruleForm.remarks = ''
     }
@@ -305,3 +327,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.menu-container {
+  :deep(.el-input-group__prepend) {
+    padding: 0 10px;
+  }
+}
+</style>

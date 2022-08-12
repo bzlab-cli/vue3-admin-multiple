@@ -3,7 +3,7 @@
  * @Description:
  * @Date: 2021/10/25 18:56:51
  * @LastEditors: jrucker
- * @LastEditTime: 2021/12/13 18:38:02
+ * @LastEditTime: 2022/08/12 15:12:12
  */
 
 /**
@@ -31,8 +31,7 @@ export const filterAsyncRouter = (routers, layout) => {
 
     item.meta = {
       title: item.menuName,
-      // icon: item.menuIcon,
-      icon: '#icondashboard',
+      icon: item.menuIcon,
       hidden: item.hiddenFlag === 0
     }
 

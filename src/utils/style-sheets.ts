@@ -3,7 +3,7 @@
  * @Description:
  * @Date: 2021/11/08 18:56:51
  * @LastEditors: jrucker
- * @LastEditTime: 2021/11/08 18:07:44
+ * @LastEditTime: 2022/08/12 15:24:43
  */
 
 import { nextTick } from 'vue'
@@ -42,7 +42,7 @@ const getElementPlusIconfont = () => {
   return new Promise((resolve, reject) => {
     nextTick(() => {
       const styles: any = document.styleSheets
-      const sheetsIconList: any = []
+      let sheetsIconList: any = []
       for (let i = 0; i < styles.length; i++) {
         for (let j = 0; j < styles[i].cssRules.length; j++) {
           if (styles[i].cssRules[j].selectorText && styles[i].cssRules[j].selectorText.indexOf('.el-icon-') === 0) {
@@ -56,6 +56,7 @@ const getElementPlusIconfont = () => {
           }
         }
       }
+      sheetsIconList = [...new Set(sheetsIconList)]
       if (sheetsIconList.length > 0) resolve(sheetsIconList.reverse())
       else reject('未获取到值，请刷新重试')
     })

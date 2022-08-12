@@ -3,7 +3,7 @@
  * @Author: jrucker
  * @Date: 2020-12-25 15:03:52
  * @LastEditors: jrucker
- * @LastEditTime: 2021/12/13 18:37:26
+ * @LastEditTime: 2022/08/12 15:19:53
  */
 
 import { ActionTree, ActionContext } from 'vuex'
@@ -11,6 +11,7 @@ import { RootState } from '@/views/admin/store'
 import { PermissionState } from './state'
 import { Mutations } from './mutations'
 import { PermissionMutationType, PermissionActionType } from './types'
+import { TagsActionTypes } from '../tags/types'
 import { asyncRoutes } from '@/views/admin/router'
 import { RouteRecordRaw } from 'vue-router'
 import { filter } from '@/utils'
@@ -52,7 +53,7 @@ export interface Actions {
 }
 
 export const actions: ActionTree<PermissionState, RootState> & Actions = {
-  [PermissionActionType.ACTION_SET_ROUTES]({ commit }: AugmentedActionContext, routes: any[]) {
+  [PermissionActionType.ACTION_SET_ROUTES]({ commit, dispatch }: AugmentedActionContext, routes: any[]) {
     const accessedCodes: any = []
     filter(routes, item => {
       if (item.menuType === 3 && item.grantFlag) {
@@ -64,6 +65,14 @@ export const actions: ActionTree<PermissionState, RootState> & Actions = {
     const filterRoutes = filter(routes, item => {
       return item.menuType !== 3 && item.grantFlag
     })
+    const cachedViews = [] as any
+    filter(routes, item => {
+      const cache = item.menuType !== 3 && item.cache === 1
+      if (cache) {
+        cachedViews.push(item.menuRoute)
+      }
+      return cache
+    })
     const accessedRoutes = filterAsyncRouter(filterRoutes, Layout)
     accessedRoutes.push({ path: '/:pathMatch(.*)', redirect: '/404', meta: { hidden: true } })
 
@@ -72,6 +81,7 @@ export const actions: ActionTree<PermissionState, RootState> & Actions = {
     console.log('asyncRoutes', asyncRoutes)
 
     commit(PermissionMutationType.SET_ACCESS_CODES, accessedCodes)
-    commit(PermissionMutationType.SET_ROUTES, asyncRoutes)
+    commit(PermissionMutationType.SET_ROUTES, accessedRoutes)
+    dispatch(TagsActionTypes.ACTION_ADD_CACHED_VIEW, cachedViews)
   }
 }

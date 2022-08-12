@@ -52,6 +52,13 @@
           </template>
         </el-table-column>
         <el-table-column prop="menuSort" label="排序" show-overflow-tooltip width="100"></el-table-column>
+        <el-table-column prop="cache" label="是否缓存">
+          <template v-slot="{ row }">
+            <el-tag v-if="row.menuType === 2" :type="row.cache == 0 ? 'danger' : ''">
+              {{ row.cache == 0 ? '禁用' : '启用' }}
+            </el-tag>
+          </template>
+        </el-table-column>
         <el-table-column prop="hiddenFlag" label="是否显示">
           <template v-slot="{ row }">
             <el-tag :type="row.hiddenFlag == 0 ? 'danger' : ''">{{ row.hiddenFlag == 0 ? '隐藏' : '显示' }}</el-tag>

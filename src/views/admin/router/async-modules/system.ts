@@ -16,7 +16,7 @@ const permissionRouter: Array<RouteRecordRaw> = [
     redirect: 'noredirect',
     meta: {
       title: '系统管理',
-      icon: '#iconquanxian',
+      icon: 'el-icon-menu',
       alwaysShow: true
     },
     children: [
@@ -26,7 +26,7 @@ const permissionRouter: Array<RouteRecordRaw> = [
         name: 'user',
         meta: {
           title: '用户管理',
-          icon: '#iconquanxian'
+          icon: 'el-icon-menu'
         }
       },
       {
@@ -35,7 +35,7 @@ const permissionRouter: Array<RouteRecordRaw> = [
         name: 'role',
         meta: {
           title: '角色管理',
-          icon: '#iconquanxian'
+          icon: 'el-icon-menu'
         }
       },
       {
@@ -44,7 +44,7 @@ const permissionRouter: Array<RouteRecordRaw> = [
         name: 'menu',
         meta: {
           title: '菜单管理',
-          icon: '#iconquanxian'
+          icon: 'el-icon-menu'
         }
       },
       {
@@ -53,7 +53,7 @@ const permissionRouter: Array<RouteRecordRaw> = [
         name: 'org',
         meta: {
           title: '组织管理',
-          icon: '#iconquanxian'
+          icon: 'el-icon-menu'
         }
       }
     ]
