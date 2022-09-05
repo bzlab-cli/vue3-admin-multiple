@@ -1,8 +1,6 @@
 <template>
   <div :class="[{ 'is-active': isActive }]" @click="toggleClick">
-    <svg class="icon" aria-hidden="true" font-size="20px">
-      <use xlink:href="#iconhamburger" />
-    </svg>
+    <i class="icon el-icon-s-unfold"></i>
   </div>
 </template>
 
@@ -31,6 +29,8 @@ export default defineComponent({
 <style lang="scss" scoped>
 .icon {
   vertical-align: middle;
+  font-size: 21px;
+  color: #333;
 }
 
 .is-active {
