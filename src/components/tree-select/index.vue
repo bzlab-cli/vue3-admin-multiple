@@ -112,14 +112,11 @@ export default defineComponent({
 .el-select-dropdown__item.selected {
   font-weight: normal;
 }
-.el-tree-node__label {
-  font-weight: normal;
-}
-.el-tree >>> .is-current .el-tree-node__label {
+:deep(.el-tree .is-current .el-tree-node__label) {
   color: #409eff;
   font-weight: 700;
 }
-.el-tree >>> .is-current .el-tree-node__children .el-tree-node__label {
+:deep(.el-tree .is-current .el-tree-node__children .el-tree-node__label) {
   color: #606266;
   font-weight: normal;
 }
