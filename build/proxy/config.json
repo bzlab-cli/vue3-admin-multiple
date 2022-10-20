@@ -1,0 +1,4 @@
+{
+  "env": "build/proxy/env.json",
+  "proxy": "build/proxy/proxy.json"
+}

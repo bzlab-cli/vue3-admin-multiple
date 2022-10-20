@@ -3,18 +3,19 @@
  * @Description: 配置文件
  * @Date: 2021/10/25 18:56:51
  * @LastEditors: jrucker
- * @LastEditTime: 2022/02/19 16:03:28
+ * @LastEditTime: 2022/10/20 11:05:54
  */
 
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin') // 压缩css
+const dynamicProxy = require('./build/proxy/index.ts')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
 const name = '后台管理'
-const port = process.env.port || 8440
+const port = process.env.port || 8445
 const cdn = {
   css: [
     // 'https://wy-open.oss-cn-shanghai.aliyuncs.com/common/element-plus@1.0.2-beta.35/theme-chalk/index.css',
@@ -51,20 +52,7 @@ module.exports = {
         }
       ]
     },
-    proxy: {
-      '/business-web': {
-        target: 'http://localhost:3301', // 模拟
-        changeOrigin: true
-      },
-      '/ftp': {
-        target: 'http://localhost:3301',
-        changeOrigin: true
-      },
-      '/img': {
-        target: 'http://localhost:3301',
-        changeOrigin: true
-      },
-    }
+    proxy: dynamicProxy.proxy
   },
   pages: {
     admin: {
