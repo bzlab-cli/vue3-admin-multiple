@@ -13,7 +13,7 @@
     "mock": "cd mock && ts-node-dev mock.ts"
   },
   "dependencies": {
-    "@bz/bz-upload": "0.1.7",
+    "@bz/bz-upload": "^0.2.0",
     "@bzlab/bz-core": "^0.1.2",
     "axios": "^0.21.1",
     "dayjs": "^1.10.7",
