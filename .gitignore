@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+build/proxy/proxy.json
 
 # local env files
 .env.local
