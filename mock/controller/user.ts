@@ -85,7 +85,7 @@ export default class User {
     }
   }
 
-  @post('/thirdUser/loginIn')
+  @post('/user/login')
   async login() {
     return {
       userId: '1ee3d49b-aa78-4846-a1b7-76044d097c8e',
@@ -98,7 +98,7 @@ export default class User {
     // return ctx.throw(401)
   }
 
-  @get('/thirdUser/getUserByToken')
+  @get('/user/getUserByToken')
   async getUserInfo() {
     return user
   }

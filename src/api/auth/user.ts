@@ -13,7 +13,7 @@ import { LoginModel } from '@/model/login'
 export const login = (userInfo: any) => {
   return axios.request<IResponseModel<LoginModel>>({
     baseURL: process.env.VUE_APP_MOCK_API,
-    url: 'thirdUser/loginIn',
+    url: 'user/login',
     method: 'post',
     data: userInfo
   })
@@ -22,7 +22,7 @@ export const login = (userInfo: any) => {
 export const userInfo = () => {
   return axios.request<IResponseModel<UserInfoModel>>({
     baseURL: process.env.VUE_APP_MOCK_API,
-    url: 'thirdUser/getUserByToken',
+    url: 'user/getUserByToken',
     method: 'get'
   })
 }
