@@ -13,12 +13,12 @@
 
 <script lang="ts">
 import { defineComponent, onBeforeMount, reactive, toRefs, watch } from 'vue'
-import { useRoute, RouteLocationMatched } from 'vue-router'
+import { useRoute, RouteLocationMatched, useRouter } from 'vue-router'
 import { compile } from 'path-to-regexp'
-import router from '@/views/admin/router'
 
 export default defineComponent({
   setup() {
+    const router = useRouter()
     const currentRoute = useRoute()
     const pathCompile = (path: string) => {
       const { params } = currentRoute
