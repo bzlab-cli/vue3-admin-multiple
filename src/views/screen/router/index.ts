@@ -3,10 +3,10 @@
  * @Author: jrucker
  * @Date: 2021/10/21 14:13:07
  * @LastEditors: jrucker
- * @LastEditTime: 2021/11/25 12:37:58
+ * @LastEditTime: 2023/04/26 18:16:19
  */
 
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 const constantFiles = require.context('./constant-modules', true, /\.ts$/)
 let constantModules: Array<RouteRecordRaw> = []
 constantFiles.keys().forEach(key => {
@@ -28,7 +28,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
   { path: '/:pathMatch(.*)', redirect: '/404', meta: { hidden: true } }
 ]
 export const router = createRouter({
-  history: createWebHashHistory('/screen'),
+  history: createWebHistory('/screen'),
   routes: constantRoutes
 })
 
