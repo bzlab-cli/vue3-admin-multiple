@@ -24,12 +24,14 @@ export const usePreviewFitScale = (width, height, screenDom, scaleDom, callback?
         scale.height = parseFloat((window.innerHeight / baseHeight).toFixed(5))
         const offsetX = ((baseWidth - baseWidth * scale.width) / 2).toFixed(0)
         scaleDom.style.transform = `scale(${scale.width}, ${scale.height})`
+        scaleDom.setAttribute('data-scale', `${scale.width}, ${scale.height}`)
         screenDom.style.margin = `0 ${offsetX}px`
       } else {
         // 表示更高
         scale.height = parseFloat((window.innerWidth / baseProportion / baseHeight).toFixed(5))
         scale.width = parseFloat((window.innerWidth / baseWidth).toFixed(5))
         scaleDom.style.transform = `scale(${scale.width}, ${scale.height})`
+        scaleDom.setAttribute('data-scale', `${scale.width}, ${scale.height}`)
         screenDom.style.margin = 0
       }
       if (callback) callback(scale)
@@ -70,6 +72,7 @@ export const usePreviewFullScale = (width, height, scaleDom, callback?) => {
       scale.width = parseFloat((window.innerWidth / width).toFixed(5))
       scale.height = parseFloat((window.innerHeight / height).toFixed(5))
       scaleDom.style.transform = `scale(${scale.width})`
+      scaleDom.setAttribute('data-scale', `${scale.width}`)
       if (callback) callback(scale)
     }
   }
