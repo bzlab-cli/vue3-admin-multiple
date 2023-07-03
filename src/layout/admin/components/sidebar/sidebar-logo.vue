@@ -2,7 +2,7 @@
   <div class="sidebar-logo-container" :class="[collapse ? 'collapse' : 'notitle']">
     <transition name="sidebarLogoFade">
       <div v-if="false" key="collapse" class="sidebar-logo-link" to="/">
-        <img src="favicon.ico" class="sidebar-logo" />
+        <img src="/favicon.ico" class="sidebar-logo" />
       </div>
       <div v-else key="expand" @click="goHome" class="sidebar-logo-link" to="/">
         <img class="sidebar-logo" :src="logo" />
