@@ -6,7 +6,7 @@
     "dev": "npm-run-all proxy:init --parallel mock serve:dev",
     "serve:dev": "cross-env NODE_ENV=development dotenv -e .env.develop vue-cli-service serve",
     "build:deploy": "cross-env NODE_ENV=production dotenv -e .env.deploy vue-cli-service build",
-    "build:release": "cross-env NODE_ENV=production dotenv -e .env.release vue-cli-service build",
+    "build:test": "cross-env NODE_ENV=production dotenv -e .env.test vue-cli-service build",
     "build": "cross-env NODE_ENV=production dotenv -e .env.prod vue-cli-service build",
     "preview": "node build/index.js --preview",
     "lint": "vue-cli-service lint",
