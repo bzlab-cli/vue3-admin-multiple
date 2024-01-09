@@ -14,6 +14,7 @@ import { useStore } from './store'
 import { UserActionTypes } from './store/modules/user/types'
 import { ElMessage } from 'element-plus'
 import { whiteList, whiteNameList } from '@/config/whitelist'
+import { routeListener } from '@/utils/permission'
 
 NProgress.configure({ showSpinner: false })
 
@@ -24,6 +25,7 @@ router.beforeEach(async (to: RouteLocationNormalized, _: RouteLocationNormalized
   if (whiteList.indexOf(to.path) !== -1 || whiteNameList.indexOf(to.name as string) !== -1) {
     next()
   } else {
+    routeListener()
     if (store.state.user.token) {
       if (!store.state.user.loadUserInfo) {
         try {

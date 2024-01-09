@@ -3,9 +3,9 @@
  * @Description:
  * @Date: 2021/10/25 18:56:51
  * @LastEditors: jrucker
- * @LastEditTime: 2022/08/12 15:12:12
+ * @LastEditTime: 2024/01/09 16:51:20
  */
-
+import { ElMessageBox } from 'element-plus'
 /**
  * 加载组件
  * @param {*} view
@@ -82,4 +82,30 @@ function filterProps(item) {
   filterPropsList.map(name => {
     delete item[name]
   })
+}
+
+/**
+ * @description 监听系统更新
+ */
+export function routeListener() {
+  fetch(`/version.json?t=${Date.now()}`)
+    .then(res => res.json())
+    .then(res => {
+      try {
+        const data = res || {},
+          lastVersion = window.localStorage.getItem('buildVersion')
+        if (lastVersion == null) return window.localStorage.setItem('buildVersion', data.version)
+        if (data.version === lastVersion) return
+        window.localStorage.setItem('buildVersion', data.version)
+        ElMessageBox.confirm('系统已更新，请刷新页面后访问！', '提示', {
+          confirmButtonText: '确认',
+          showCancelButton: false,
+          type: 'warning'
+        }).then(() => {
+          location.reload()
+        })
+      } catch (e) {
+        console.error(e)
+      }
+    })
 }
