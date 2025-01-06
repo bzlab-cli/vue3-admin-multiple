@@ -3,7 +3,7 @@
  * @Description:
  * @Date: 2021/10/25 18:56:51
  * @LastEditors: jrucker
- * @LastEditTime: 2024/01/09 16:51:20
+ * @LastEditTime: 2025/01/06 10:04:01
  */
 import { ElMessageBox } from 'element-plus'
 /**
@@ -100,6 +100,8 @@ export function routeListener() {
         ElMessageBox.confirm('系统已更新，请刷新页面后访问！', '提示', {
           confirmButtonText: '确认',
           showCancelButton: false,
+          closeOnClickModal: false,
+          showClose: false,
           type: 'warning'
         }).then(() => {
           location.reload()

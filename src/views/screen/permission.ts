@@ -3,7 +3,7 @@
  * @Description: 权限
  * @Date: 2021/10/25 18:56:51
  * @LastEditors: jrucker
- * @LastEditTime: 2022/01/29 16:26:41
+ * @LastEditTime: 2025/01/06 11:54:35
  */
 
 import NProgress from 'nprogress'
@@ -14,13 +14,14 @@ import { useStore } from './store'
 import { UserActionTypes } from './store/modules/user/types'
 import { ElMessage } from 'element-plus'
 import { whiteList, whiteNameList } from '@/config/whitelist'
+import { routeListener } from '@/utils/permission'
 
 NProgress.configure({ showSpinner: false })
 
 router.beforeEach(async (to: RouteLocationNormalized, _: RouteLocationNormalized, next: any) => {
   NProgress.start()
   const store = useStore()
-
+  routeListener()
   if (whiteList.indexOf(to.path) !== -1 || whiteNameList.indexOf(to.name as string) !== -1) {
     next()
   } else {
